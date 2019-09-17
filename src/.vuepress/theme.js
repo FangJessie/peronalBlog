@@ -8,27 +8,6 @@
 
 /** 对默认主题的配置 */
 module.exports = {
-  /** 头部导航栏的配置 */
-  nav: [
-    { text: '主页', link: '/' },
-    { text: '学习笔记', link: '/learning.html' }
-  ],
-
-  /** 侧边栏配置 */
-  sidebar: {
-    '/markdown/': [
-      '',     /* /foo/ */
-      'demo',  /* /foo/one.html */
-      'emoji'   /* /foo/two.html */
-    ],
-
-    // fallback
-    '/': [
-      '',        /* / */
-      'about'    /* /about.html */
-    ]
-  },
-
   /** 侧边栏标题显示深度，0-2 */
   sidebarDepth: 2,
 
@@ -53,12 +32,6 @@ module.exports = {
 
       /** 网站在该语言下的侧边栏 */
       sidebar: {
-        '/markdown/': [
-          '',
-          'demo',
-          'emoji'
-        ],
-
         // fallback
         '/': [
           '',      /* / */
@@ -82,14 +55,13 @@ module.exports = {
     /** 英文 */
     '/en/': {
       lang: 'en-US',
-      title: 'Blog DEMO',
+      title: 'Jessie\'s Bolg',
       description: 'Vuepress based blog',
       nav: [
         { text: 'Home', link: '/en/' },
         { text: 'Learning Note', link: '/en/learning.html' }
       ],
       sidebar: {
-        '/en/markdown/': ['', 'demo', 'emoji'],
         '/en/': ['', 'about']
       },
       selectText: 'Language',

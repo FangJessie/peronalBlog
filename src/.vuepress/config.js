@@ -11,11 +11,11 @@ module.exports = {
   /** 部署目录 */
   base: process.env.VuePress_BASE || '/',
 
-  /** 网站标题 */
-  title: '博客示例',
+  /** 网站的标题 */
+  title: '我是方佳馨',
 
-  /** 网站描述 */
-  description: '基于Vuepress的博客',
+  /** 网站的描述 */
+  description: '方佳馨的个人博客',
 
   /** 生成网站头部的标签 */
   head: [
@@ -60,15 +60,15 @@ module.exports = {
       lang: 'zh-CN', // 将会被设置为 <html> 的 lang 属性
 
       /** 网站在该语言下的标题 */
-      title: '博客示例',
+      title: '我是方佳馨',
 
       /** 网站在该语言下的描述 */
-      description: '基于Vuepress的博客',
+      description: '方佳馨的个人博客'
     },
     /** 英文设置 */
     '/en/': {
       lang: 'en-US',
-      title: 'Blog DEMO',
+      title: 'Jessie\'s Blog',
       description: 'Vuepress based blog',
     }
   },
