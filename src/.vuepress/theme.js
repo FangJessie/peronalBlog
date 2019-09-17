@@ -12,7 +12,8 @@ module.exports = {
   nav: [
     { text: '主页', link: '/' },
     { text: 'Vuepress介绍', link: '/about.html' },
-    { text: 'Markdown介绍', link: '/markdown/' }
+    { text: 'Markdown介绍', link: '/markdown/' },
+    { text: '学习笔记', link: '/learning.html' }
   ],
 
   /** 侧边栏配置 */
@@ -50,7 +51,8 @@ module.exports = {
       nav: [
         { text: '主页', link: '/' },
         { text: 'Vuepress介绍', link: '/about.html' },
-        { text: 'Markdown介绍', link: '/markdown/' }
+        { text: 'Markdown介绍', link: '/markdown/' },
+        { text: '学习笔记', link: '/learning.html' }
       ],
 
       /** 网站在该语言下的侧边栏 */
@@ -89,7 +91,8 @@ module.exports = {
       nav: [
         { text: 'Home', link: '/en/' },
         { text: 'Vuepress', link: '/en/about.html' },
-        { text: 'Markdown', link: '/en/markdown/' }
+        { text: 'Markdown', link: '/en/markdown/' },
+        { text: 'Learning Note', link: '/en/learning.html' }
       ],
       sidebar: {
         '/en/markdown/': ['', 'demo', 'emoji'],
