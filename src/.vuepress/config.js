@@ -2,10 +2,9 @@
  * @Author: Mr.Hope
  * @Date: 2019-07-05 00:14:26
  * @LastEditors: Mr.Hope
- * @LastEditTime: 2019-09-17 12:58:58
+ * @LastEditTime: 2019-09-22 12:27:23
  * @Description: Vuepress配置
  */
-const themeConfig = require('./theme');
 
 module.exports = {
   /** 部署目录 */
@@ -23,7 +22,7 @@ module.exports = {
     ['link', { rel: 'icon', href: '/favicon.ico' }],
 
     // 设置网站作者
-    ['meta', { name: 'author', content: 'Mr.Hope' }],
+    ['meta', { name: 'author', content: 'Fang Jessie' }],
 
     // 移动端App体验
     ['meta', {
@@ -42,8 +41,9 @@ module.exports = {
     ['meta', { name: 'msapplication-TileColor', content: '#ffffff' }]
   ],
 
-  /** 主题配置 */
-  themeConfig,
+  // host: '0.0.0.0',
+  // port:8080,
+  // temp: './dist/temp',
 
   /** 构建文件输出目录 */
   dest: 'dist',
@@ -73,24 +73,55 @@ module.exports = {
     }
   },
 
+  /** 主题配置 */
+  themeConfig: require('./themeConfig'),
+
+  /** markdown-it的配置 */
+  markdown: {
+    linenumber: true
+  },
+
   /** 是否只支持常青树浏览器 */
   evergreen: true, // 设置为true后将不会兼容IE等老旧浏览器
 
   /** 插件选项 */
-  plugins: {
+  plugins: [
+    /** 自定义容器配置 */
+    ['container', {
+      type: 'tip',
+      defaultTitle: {
+        '/': '提示',
+        '/en/': 'Tips'
+      }
+    }],
+    ['container', {
+      type: 'warning',
+      defaultTitle: {
+        '/': '注意',
+        '/en/': 'Note'
+      }
+    }],
+    ['container', {
+      type: 'danger',
+      defaultTitle: {
+        '/': '警告',
+        '/en/': 'Warning'
+      }
+    }],
+
     /** 更新时间插件 */
-    '@vuepress/last-updated': {
+    ['@vuepress/last-updated', {
       /** 转换时间戳 */
       transformer: (timestamp, lang) => {
         const moment = require('moment');
 
         moment.locale(lang);
-        return moment(timestamp).fromNow();
+        return moment(timestamp).format('LLL');
       }
-    },
+    }],
 
     /** PWA 插件 */
-    '@vuepress/pwa': {
+    ['@vuepress/pwa', {
       /** 是否注册Service Worker */
       serviceWorker: true,
       /** 是否弹出页面更新提示 */
@@ -104,32 +135,31 @@ module.exports = {
           buttonText: "Refresh"
         }
       }
-    },
+    }],
 
     /** 搜索插件 */
-    '@vuepress/search': {
+    ['@vuepress/search', {
       /** 搜索展示数量 */
       searchMaxSuggestions: 10
-    },
-
-    /** 进度条插件 */
-    '@vuepress/nprogress': true,
-
-    /** 返回顶部 */
-    '@vuepress/back-to-top': true,
-
-    /** 页面滚动时自动激活侧边栏链接的插件 */
-    '@vuepress/active-header-links': true,
+    }],
 
     /** 图片缩放插件 */
-    '@vuepress/medium-zoom': {
+    ['@vuepress/medium-zoom', {
+      /** 图片选择器 */
       // selector: 'img.zoom-custom-imgs',
 
-      // medium-zoom options here
-      // See: https://github.com/francoischalifour/medium-zoom#options
+      /** 设置选项 */
       options: {
-        margin: 16
+        /** 缩放后图片的外间距 */
+        margin: 16,
+        /** 缩放背景 */
+        background: '#fff',
+        /** 关闭缩放需要滚动的像素数 */
+        scrollOffset: 40
       }
-    }
-  }
+    }],
+
+    /** chunk命名 */
+    ['named-chunks']
+  ]
 };
